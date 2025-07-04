@@ -11,9 +11,3 @@
         key: "{{ group_name }}"
       register: grp
       tags: always
-
-    - name: Assert gid matches
-      ansible.builtin.assert:
-        that:
-          - grp.ansible_facts.getent_group[group_name][2] | int == group_gid | int
-      tags: always

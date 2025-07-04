@@ -139,7 +139,6 @@
 
 .buttons {
     display: flex;
-    padding-top: 20px;
     padding-left: 23px;
     gap: 15px;
 }
