@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Button, Icon, Text, Tooltip } from '@gravity-ui/uikit';
-import {House, FileCode, ArrowRightFromSquare, Persons, Plus} from '@gravity-ui/icons';
+import {House, FileCode, ArrowRightFromSquare, Persons, Plus, ChartAreaStackedNormalized, Route} from '@gravity-ui/icons';
 import '../styles.css';
 import './LeftMenu.css';
 
@@ -40,6 +40,7 @@ const LeftMenu = ({ isActive, isCollapsed, sidebarRef }) => {
       className={`sidebar ${isActive ? 'active' : ''} ${isCollapsed ? 'collapsed' : ''}`}
     >
       <ul className="list">
+
         <li className="list-item">
           <Tooltip content="Главная" placement="right" disabled={!isCollapsed} openDelay={300}>
             <NavLink
@@ -54,6 +55,22 @@ const LeftMenu = ({ isActive, isCollapsed, sidebarRef }) => {
             </NavLink>
           </Tooltip>
         </li>
+
+        <li className="list-item">
+          <Tooltip content="Дашборд" placement="right" disabled={!isCollapsed} openDelay={300}>
+            <NavLink
+              to="/User/dashboard"
+              end
+              className={({ isActive }) => isActive ? "menu-item active" : "menu-item"}
+            >
+              <Button view="flat" width="max" className="button" size="l">
+                <Icon data={ChartAreaStackedNormalized} size={20} />
+                {!isCollapsed && <Text variant="body-2">Дашборд</Text>}
+              </Button>
+            </NavLink>
+          </Tooltip>
+        </li>
+
         <li className="list-item">
           <Tooltip content="Создать ВМ" placement="right" disabled={!isCollapsed} openDelay={300}>
             <NavLink
@@ -67,6 +84,7 @@ const LeftMenu = ({ isActive, isCollapsed, sidebarRef }) => {
             </NavLink>
           </Tooltip>
         </li>
+
         <li className="list-item">
           <Tooltip content="Скрипты" placement="right" disabled={!isCollapsed} openDelay={300}>
             <NavLink
@@ -80,6 +98,7 @@ const LeftMenu = ({ isActive, isCollapsed, sidebarRef }) => {
             </NavLink>
           </Tooltip>
         </li>
+
         <li className="list-item">
           <Tooltip content="Добавить скрипт" placement="right" disabled={!isCollapsed} openDelay={300}>
             <NavLink
@@ -93,6 +112,22 @@ const LeftMenu = ({ isActive, isCollapsed, sidebarRef }) => {
             </NavLink>
           </Tooltip>
         </li>
+
+        <li className="list-item">
+          <Tooltip content="Сценарии" placement="right" disabled={!isCollapsed} openDelay={300}>
+            <NavLink
+              to="/User/scenarios"
+              end
+              className={({ isActive }) => isActive ? "menu-item active" : "menu-item"}
+            >
+              <Button view="flat" width="max" className="button" size="l">
+                <Icon data={Route} size={20} />
+                {!isCollapsed && <Text variant="body-2">Сценарии</Text>}
+              </Button>
+            </NavLink>
+          </Tooltip>
+        </li>
+
         <li className="list-item">
           <Tooltip content="Пользователи" placement="right" disabled={!isCollapsed} openDelay={300}>
             <NavLink
@@ -106,6 +141,7 @@ const LeftMenu = ({ isActive, isCollapsed, sidebarRef }) => {
             </NavLink>
           </Tooltip>
         </li>
+
         <li className="list-item">
           <Tooltip content="Выход" placement="right" disabled={!isCollapsed} openDelay={300}>
             <NavLink
@@ -120,6 +156,7 @@ const LeftMenu = ({ isActive, isCollapsed, sidebarRef }) => {
             </NavLink>
           </Tooltip>
         </li>
+
       </ul>
     </nav>
   );
